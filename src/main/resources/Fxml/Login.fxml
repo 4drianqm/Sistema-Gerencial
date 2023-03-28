@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="main_from" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/Login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemagerencial.Controllers.LoginController">
+    <VBox layoutX="7.0" layoutY="7.0" prefHeight="400.0" prefWidth="232.0" styleClass="login_logo_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <FontAwesomeIconView glyphName="HOME" size="30" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="BIANCA" />
+    </VBox>
+    <VBox layoutX="247.0" layoutY="49.0" prefHeight="295.0" prefWidth="339.0" styleClass="login_form_container">
+      <Label text="Inicia sesion" />
+      <Label text="User:" />
+        <TextField fx:id="user_txt" promptText="Escribe aqui" />
+      <Label text="Password:" />
+        <TextField fx:id="password_txt" promptText="Escribre aqui" />
+        <Button fx:id="login_txt" mnemonicParsing="false" onAction="#loginAdmin" text="Entrar" />
+    </VBox>
+</AnchorPane>
