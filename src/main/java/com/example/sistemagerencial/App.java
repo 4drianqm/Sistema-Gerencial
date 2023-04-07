@@ -10,6 +10,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        Conection conection = new Conection();
+        conection.CreateConection();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
