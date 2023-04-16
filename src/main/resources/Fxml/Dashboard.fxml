@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -40,19 +41,39 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <AnchorPane fx:id="Inventory_form" layoutX="228.0" layoutY="214.0" prefHeight="600.0" prefWidth="899.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <AnchorPane layoutX="25.0" layoutY="20.0" prefHeight="560.0" prefWidth="850.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="20.0">
-                     <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This is inventory" />
-                     <TableView fx:id="Inventory_tbl" layoutX="19.0" layoutY="188.0" prefHeight="358.0" prefWidth="807.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="19.0">
+                  <AnchorPane layoutX="14.0" layoutY="20.0" prefHeight="560.0" prefWidth="850.0" stylesheets="@../Styles/Dashboard.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="20.0">
+                     <TableView fx:id="Inventory_tbl" layoutX="23.0" layoutY="78.0" onMouseClicked="#selectProduct" prefHeight="290.0" prefWidth="807.0" stylesheets="@../Styles/Inventorytable.css" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="20.0">
                        <columns>
-                         <TableColumn fx:id="Inventory_name" prefWidth="178.0" text="Nombre" />
-                         <TableColumn fx:id="Inventory_price" prefWidth="107.0" text="Precio" />
-                           <TableColumn fx:id="Inventory_cost" prefWidth="109.0" text="Costo" />
-                           <TableColumn fx:id="Inventory_store" prefWidth="116.0" text="Bodega" />
-                           <TableColumn fx:id="Inventory_exist" prefWidth="89.0" text="Existencia" />
-                           <TableColumn fx:id="Inventory_insert" prefWidth="88.0" text="Insertar" />
-                           <TableColumn fx:id="Inventory_delete" prefWidth="101.0" text="Eliminar" />
+                           <TableColumn fx:id="Inventory_id" prefWidth="75.0" text="ID" />
+                         <TableColumn fx:id="Inventory_name" prefWidth="305.0" text="Nombre" />
+                         <TableColumn fx:id="Inventory_price" prefWidth="173.0" text="Precio" />
+                           <TableColumn fx:id="Inventory_store" prefWidth="109.0" text="Bodega" />
+                           <TableColumn fx:id="Inventory_exist" prefWidth="132.0" text="Existencia" />
                        </columns>
                      </TableView>
+                     <Button fx:id="btn_addProduct" layoutX="45.0" layoutY="385.0" mnemonicParsing="false" onAction="#insertProduct" prefHeight="30.0" prefWidth="106.0" styleClass="left_container" text="Agregar">
+                        <graphic>
+                           <FontAwesomeIconView glyphName="PLUS" />
+                        </graphic></Button>
+                     <Button fx:id="btn_deleteProduct" layoutX="45.0" layoutY="429.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="32.0" prefWidth="106.0" styleClass="left_container" text="Eliminar">
+                        <graphic>
+                           <FontAwesomeIconView glyphName="TRASH" />
+                        </graphic></Button>
+                     <TextField fx:id="txt_serch_inventary" layoutX="18.0" layoutY="14.0" prefHeight="48.0" prefWidth="278.0" promptText="Buscar" styleClass="left_container" />
+                     <Button fx:id="btn_updateProduct" layoutX="45.0" layoutY="475.0" mnemonicParsing="false" onAction="#updateProduct" prefHeight="29.0" prefWidth="107.0" styleClass="left_container" text="Acutalizar">
+                        <graphic>
+                           <FontAwesomeIconView glyphName="UNDO" />
+                        </graphic></Button>
+                     <TextField fx:id="txt_product_inventory" layoutX="216.0" layoutY="376.0" prefHeight="59.0" prefWidth="394.0" promptText="Producto" styleClass="left_container" />
+                     <TextField fx:id="txt_price_inventory" layoutX="217.0" layoutY="446.0" prefHeight="25.0" prefWidth="171.0" promptText="Precio" styleClass="left_container" />
+                     <TextField fx:id="txt_store_inventory" layoutX="217.0" layoutY="489.0" prefHeight="25.0" prefWidth="172.0" promptText="Bodega" styleClass="left_container" />
+                     <TextField fx:id="txt_existence_inventory" layoutX="420.0" layoutY="446.0" prefHeight="25.0" prefWidth="172.0" promptText="Existencia" styleClass="left_container" />
+                     <TextField fx:id="txt_id_inventory" editable="false" layoutX="638.0" layoutY="388.0" prefHeight="25.0" prefWidth="194.0" styleClass="left_container" />
+                     <Button fx:id="btn_clean" layoutX="315.0" layoutY="26.0" mnemonicParsing="false" onAction="#clean_load_Inventory" prefHeight="32.0" prefWidth="85.0" styleClass="left_container" text="Limpiar">
+                        <graphic>
+                           <FontAwesomeIconView glyphName="BAN" />
+                        </graphic>
+                     </Button>
                   </AnchorPane>
                </AnchorPane>
                <AnchorPane fx:id="clients_form" layoutX="7.0" layoutY="6.0" prefHeight="600.0" prefWidth="899.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
