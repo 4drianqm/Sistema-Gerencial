@@ -9,8 +9,11 @@ import org.bson.types.ObjectId;
 public class Connection {
  public MongoClient mongoclient = null;
     public DB database;
+    public DB clientsdb;
     public DBCursor cursor = null;
     public DBCollection Inventory;
+
+    public DBCollection Client;
     public String server = "localhost";
     public Integer port = 27017;
 
@@ -26,8 +29,8 @@ public class Connection {
                 database = mongoclient.getDB("BiancaDB");
                 System.out.println("Conexion exitosa");
 
-                Inventory = database.getCollection("Inventario");
-                cursor = Inventory.find();
+                Client= database.getCollection("Clients");
+                cursor = Client.find();
 
 //                while (cursor.hasNext()){
 //
@@ -121,6 +124,66 @@ public class Connection {
 
         }catch (MongoException e){
             System.out.println("Error al elimianr: " + e);
+        }
+
+        Close();
+    }
+
+    public void updateClientDB(String id, String name, String phone, String address, String nit){
+        CreateConnection();
+        try {
+            BasicDBObject query =  new BasicDBObject();
+            query.put("_id", new ObjectId(id));
+            BasicDBObject update =  new BasicDBObject();
+            update.put("Nombre", name);
+            update.put("Telefono",phone);
+            update.put("Direccion",address);
+            update.put("NIT",nit);
+
+            BasicDBObject updateObject =  new BasicDBObject();
+            updateObject.put("$set",update);
+
+            Inventory = database.getCollection("Clients");
+            Inventory.update(query,updateObject);
+            System.out.println("Cliente actualizado");
+
+        }catch (MongoException e){
+            System.out.println("Error al actualizar cliente" +e );
+        }
+        Close();
+    }
+
+    public void insertNewClient(String name,String address, String nit){
+        CreateConnection();
+        try {
+            Inventory = database.getCollection("Clients");
+            document =  new BasicDBObject();
+            document.put("Nombre",name);
+            document.put("Direccion",address);
+            document.put("NIT",nit);
+
+            Inventory.insert(document);
+            System.out.println("Cliente intertado correctamente");
+
+        }catch (MongoException e){
+            System.out.println("error al insertar nuevo cliente" + e);
+        }
+
+        Close();
+    }
+
+    public void deleteClient(String id){
+        CreateConnection();
+        try {
+            Inventory = database.getCollection("Clients");
+
+            BasicDBObject query = new BasicDBObject();
+            query.put("_id", new ObjectId(id));
+            Inventory.remove(query);
+            System.out.println("CLiente eliminado");
+
+        }catch (MongoException e){
+            System.out.println("error al eliminar cliente " + e);
         }
 
         Close();
