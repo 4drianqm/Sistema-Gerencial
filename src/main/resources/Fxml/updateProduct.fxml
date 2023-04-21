@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="413.0" stylesheets="@../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistemagerencial.Controllers.updateProductController">
+    <TextField fx:id="txt_updateProduct_name" layoutX="63.0" layoutY="138.0" prefHeight="25.0" prefWidth="276.0" styleClass="left_container" />
+    <TextField fx:id="txt_updateProduct_price" layoutX="63.0" layoutY="194.0" prefHeight="25.0" prefWidth="125.0" styleClass="left_container" />
+    <TextField fx:id="txt_updateProduct_store" layoutX="211.0" layoutY="194.0" prefHeight="25.0" prefWidth="125.0" styleClass="left_container" />
+    <TextField fx:id="txt_updateProduct_exis" layoutX="63.0" layoutY="255.0" prefHeight="25.0" prefWidth="125.0" styleClass="left_container" />
+    <Label layoutX="63.0" layoutY="112.0" text="Producto:" />
+    <Label layoutX="63.0" layoutY="171.0" text="Precio: " />
+    <Label layoutX="211.0" layoutY="171.0" text="Bodega:" />
+    <Label layoutX="62.0" layoutY="227.0" text="Existencia:" />
+    <TextField fx:id="txt_updateProducto_id" editable="false" layoutX="63.0" layoutY="77.0" prefHeight="25.0" prefWidth="276.0" styleClass="left_container" />
+    <Label layoutX="65.0" layoutY="31.0" text="ACTUALIZAR PRODUCTOS">
+        <font>
+          <Font size="25.0" />
+        </font>
+    </Label>
+    <Button fx:id="btn_updateProduct_update" layoutX="162.0" layoutY="317.0" mnemonicParsing="false" onAction="#update_product" prefHeight="36.0" prefWidth="92.0" styleClass="left_container" text="Actualizar">
+        <graphic>
+          <FontAwesomeIconView glyphName="UNDO" />
+        </graphic>
+    </Button>
+</AnchorPane>
